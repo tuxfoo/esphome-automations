@@ -122,28 +122,6 @@ light:
     pin:
       inverted: true
       number: GPIO13
-
-
-time:
-  - platform: sntp
-    on_time:
-      # Turn on Every Night
-      - seconds: 0
-        minutes: 30
-        hours: 19
-        then:
-          - switch.turn_on: relay
-      - seconds: 0
-        minutes: 05
-        hours: 21
-        then:
-          - switch.turn_off: relay
-      # Back up power off (To make sure it actually turns off)
-      - seconds: 0
-        minutes: 15
-        hours: 21
-        then:
-          - switch.turn_off: relay 
             
 text_sensor:
   - platform: wifi_info
